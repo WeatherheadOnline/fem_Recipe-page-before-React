@@ -1,0 +1,9 @@
+  *** Resources provided ***
+
+https://www.frontendmentor.io/articles/figma-for-developers-how-to-work-with-a-design-file-m6CZKZ1rC1
+
+https://www.frontendmentor.io/articles/git-and-github-essentials-a-beginners-guide-T4i1dKqfmH
+
+https://www.frontendmentor.io/articles/the-benefits-of-writing-a-good-challenge-readme-3EIwMaYVgz
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
