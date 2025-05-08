@@ -6,4 +6,139 @@ https://www.frontendmentor.io/articles/git-and-github-essentials-a-beginners-gui
 
 https://www.frontendmentor.io/articles/the-benefits-of-writing-a-good-challenge-readme-3EIwMaYVgz
 
+  *** Resources that helped me: ***
+
+To create a React app:
+https://www.c-sharpcorner.com/article/create-your-first-react-app-in-vs-code/
+
+To get npx working on the command line:
+https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.5
+
+https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.5
+
+https://dev.to/jackfd120/resolving-npm-execution-policy-error-in-powershell-a-step-by-step-guide-for-developers-32ip
+
+How to add an image in React:
+https://medium.com/@vitaliysteffensen/react-js-how-to-add-an-image-a-beginners-guide-66334f1d18be
+
+https://www.freecodecamp.org/learn/front-end-development-libraries/#react
+
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The challenge is to recreate a recipe card in a responsive, well-spaced format.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+** Process: **
+
+Added colors to css as variables
+Added CSS rules for text preset classes
+Added @font-face rules to facilitate use of hosted fonts
+
+Decided that layout would be another straightforward collection of nested containers -> have some fun with the construction by using React.
+- construct ordered or unordered lists from arrays of ingredient or instruction items
+
+As a React app, I ran into problems with using local fonts -> had to move font files into src folder
+
+Created a "recipe" object containing everything specific to this recipe: title, description, times, ingredients, instructions, and nutritional info. Referred to these in the script. (For reusability with other recipes)
+
+I ran into problems with array.map to make the Ingredients section. Realized I'd omitted unique keys for each element added via mapping.
+
+Added text preset class names to components
+
+Started adding mobile-first css: background colors, padding around the main element.
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+React pseudocode:
+
+*** add some SASS such that <li> inherits from .text-preset-whatever, and <li> > <span> inherits from .text-preset-whatever-else. ***
+
+const RecipeTitle = "Simple Omelette Recipe"
+const RecipeDescription = "..."
+
+component PreparationTimeBox (totalTime, prepTime, cookTime) {
+  <h3 class="text-preset-_">Preparation time</h3>
+  <ul>
+    <li><span>Total:</span> {this.props.totalTime}</li>
+    <li><span>Preparation:</span> {this.props.prepTime}</li>
+    <li><span>Cooking:</span> {this.props.cookTime}</li>
+  </ul>
+}
+
+component IngredientsBox ([ingredients array of strings]) {
+  <h2 class="text-preset-_">Ingredients</h2>
+  <ul>
+    (map a list of <li> elements from this.props.arr)
+  </ul>
+}
+
+component InstructionsBox ([array of objects comprising spans and main-text]) {
+  <h2 class="text-preset-_">Instructions</h2>
+  <ol>
+    map: <li><span>{span-text}:</span> {main-text}</li>
+  </ol>
+}
+
+component NutritionBox (calories, carbs, protein, fat)
+
+
+omelette as an instance of Recipe class {
+
+// Properties: image-src, title, description, times, ingredients, instructions, nutrition //
+
+  "title": "Simple Omelette Recipe",
+  "description": "An easy and quick dish, perfect for any meal. This classic omelette combines beaten eggs cooked 
+  to perfection, optionally filled with your choice of cheese, vegetables, or meats.",
+  "times": {
+    "total": "Approximately 10 minutes",
+    "prep": "5 minutes",
+    "cook": "5 minutes"
+  },
+  "ingredients": [
+    "2-3 large eggs",
+    "Salt, to taste",
+    "Pepper, to taste",
+    "1 tablespoon of butter or oil", 
+    "Optional fillings: cheese, diced vegetables, cooked meats, herbs",
+  ], 
+  "instructions": [
+    {
+      "span-text": "Beat the eggs",
+      "main-text": "In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed. 
+  You can add a tablespoon of water or milk for a fluffier texture."
+    },
+    {
+      "span-text": "Heat the pan",
+      "main-text": "Place a non-stick frying pan over medium heat and add butter or oil."
+    },
+    {
+      "span-text": "Cook the omelette",
+      "main-text": "Once the butter is melted and bubbling, pour in the eggs. Tilt the pan to ensure 
+  the eggs evenly coat the surface."
+    },
+    {
+      "span-text": "Add fillings (optional)",
+      "main-text": "When the eggs begin to set at the edges but are still slightly runny in the 
+  middle, sprinkle your chosen fillings over one half of the omelette."
+    },
+    {
+      "span-text": "Fold and serve",
+      "main-text": "As the omelette continues to cook, carefully lift one edge and fold it over the 
+  fillings. Let it cook for another minute, then slide it onto a plate."
+    },
+    {
+      "span-text": "Enjoy",
+      "main-text": "Serve hot, with additional salt and pepper if needed."
+    },
+  ],
+  "nutrition": {
+    "calories": 277,
+    "carbs": 0,
+    "protein": 20,
+    "fat": 22
+  }
+}
